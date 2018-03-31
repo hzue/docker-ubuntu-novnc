@@ -63,11 +63,11 @@ else
 	@# Linux
 	@#
 	@# Register binfmt
-	docker run --privileged yen3/binfmt-register set aarch64
+	docker run --rm --privileged yen3/binfmt-register set aarch64
 	@# build
 	docker build -t $(IMAGE_NAME):arm64 -f Dockerfile_arm64v8 .
 	@# Clear binfmt
-	docker run --privileged yen3/binfmt-register clear aarch64
+	docker run --rm --privileged yen3/binfmt-register clear aarch64
 endif
 
 get-manifest-tool:
